@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2 - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8eaf6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 350px;
+            margin: 40px auto;
+            background-color: #fff;
+            border: 2px solid #303f9f;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #1a237e;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .boton {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .mensaje {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #c5cae9;
+            border-radius: 5px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Login de Usuarios</h2>
+    <form method="post">
+        <label>Usuario:</label>
+        <input type="text" name="usuario" required>
+
+        <label>Contraseña:</label>
+        <input type="password" name="password" required>
+
+        <button class="boton" type="submit">Ingresar</button>
+    </form>
+
+    {% if mensaje %}
+    <div class="mensaje">
+        <p>{{ mensaje }}</p>
+    </div>
+    {% endif %}
+
+    <a href="/">Volver al menú</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 - Pinturas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffde7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 400px;
+            margin: 40px auto;
+            background-color: #fff;
+            border: 2px solid #fbc02d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #f57f17;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        .boton {
+            background-color: #fbc02d;
+            color: black;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .resultado {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #fff9c4;
+            border-radius: 5px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Compra de Tarros de Pintura</h2>
+    <form method="post">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label>Edad:</label>
+        <input type="number" name="edad" required>
+
+        <label>Cantidad de tarros:</label>
+        <input type="number" name="cantidad_tarros" required>
+
+        <button class="boton" type="submit">Calcular</button>
+    </form>
+
+    {% if resultado %}
+    <div class="resultado">
+        <p>Nombre: {{ resultado.nombre }}</p>
+        <p>Total sin descuento: ${{ resultado.total_sin_descuento }}</p>
+        {% if resultado.descuento_porcentaje > 0 %}
+            <p>Descuento aplicado: {{ resultado.descuento_porcentaje }}%</p>
+            <p>Total a pagar: ${{ resultado.total_con_descuento }}</p>
+        {% else %}
+            <p>No tiene descuento. Total a pagar: ${{ resultado.total_sin_descuento }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <a href="/">Volver al menú</a>
+</div>
+</body>
+</html>
